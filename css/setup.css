@@ -12,7 +12,7 @@ body {
 }
 /* ---------- Bg Blob ---------- */
 .bg-blob{
-    position: absolute;
+    position: fixed;
     top:-200px;
     right: -300px;
     height: 600px;
@@ -52,12 +52,16 @@ body {
 }
 
 /* ---------- Hero Image ---------- */
+.hero-image-wrapper {
+  position: relative;
+  flex: 1;
+}
+
 .hero-image img {
+  position: relative;
   max-width: 700px;
-  
   height: auto;
-  margin-left: -200px;
-  
+  margin-left: calc(-1 * ((100vw - 1200px) / 2));
 }
 
 /* ---------- Hero Content ---------- */
@@ -101,13 +105,16 @@ body {
   font-size: 20px;
   border-radius: 28px;
   border: 1px solid #8F004F;
-  background: #FFFFFF;
+  background: #FFF2AA;
   color: #8F004F;
   cursor: pointer;
   box-shadow: 0px 4px 4.3px rgba(87, 19, 19, 0.31);
 }
+
 .proceed-btn:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
+    background: #8F004F;
+    color: white;
 }
 
 

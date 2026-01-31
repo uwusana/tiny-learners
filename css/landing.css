@@ -12,7 +12,7 @@ body {
 }
 /* ---------- Bg Blob ---------- */
 .bg-blob{
-    position: absolute;
+    position: fixed;
     top:-200px;
     right: -300px;
     height: 600px;
@@ -52,12 +52,18 @@ body {
 }
 
 /* ---------- Hero Image ---------- */
-.hero-image img {
-  max-width: 650px;
-  height: auto;
-  margin-left: -200px;
-  
+.hero-image-wrapper {
+  position: relative;
+  flex: 1;
 }
+
+.hero-image img {
+  position: relative;
+  max-width: 700px;
+  height: auto;
+  margin-left: calc(-1 * ((100vw - 1200px) / 2));
+}
+
 
 /* ---------- Hero Content ---------- */
 .hero-content {
