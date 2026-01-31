@@ -39,7 +39,7 @@ body {
 
 .site-header img{
     height: 150px;
-    position: relative;
+    
    
 }
 
@@ -53,7 +53,8 @@ body {
 
 /* ---------- Hero Image ---------- */
 .hero-image img {
-  max-width: 650px;
+  max-width: 700px;
+  
   height: auto;
   margin-left: -200px;
   
@@ -62,38 +63,53 @@ body {
 /* ---------- Hero Content ---------- */
 .hero-content {
   max-width: 500px;
+  background: rgba(245, 245, 245, 0.506);
+  padding: 50px 30px;
+  border-radius: 50px;
+  border: 1px solid #8F004F;
 }
 
 .hero-heading {
-  font-size: 48px;
+  font-size: 38px;
   color: #8F004F;
   margin-bottom: 20px;
 }
 
-.hero-subtext {
-  font-size: 24px;
-  color: #B17A9E;
-  line-height: 1.5;
-  margin-bottom: 30px;
+.setup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-/* ---------- Button ---------- */
+.setup-form label {
+  font-size: 18px;
+  color: #8F004F;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.setup-form input,
+.setup-form select {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #B17A9E;
+  font-size: 16px;
+}
 .proceed-btn {
   padding: 12px 32px;
   font-size: 20px;
   border-radius: 28px;
   border: 1px solid #8F004F;
-  background: #FFF2AA;
+  background: #FFFFFF;
   color: #8F004F;
   cursor: pointer;
   box-shadow: 0px 4px 4.3px rgba(87, 19, 19, 0.31);
 }
-
 .proceed-btn:hover {
-    transform: scale(1.05);
-    background: #8F004F;
-    color: white;
+  transform: scale(1.05);
 }
+
 
 @media(max-width: 768px){
     .hero-section{

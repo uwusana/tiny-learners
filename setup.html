@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiny Learners – Setup</title>
+
+  <link rel="stylesheet" href="css/setup.css" />
+</head>
+<body>
+
+  <!-- Background blob -->
+  <div class="bg-blob"></div>
+
+  <div class="page-wrapper">
+
+    <!-- Header -->
+    <header class="site-header">
+        <img
+            src="assets/images/logo.png"
+            alt="brand logo"
+        >
+    </header>
+
+    <!-- Hero / Setup Section -->
+    <section class="hero-section">
+
+      <!-- Image stays same -->
+      <div class="hero-image">
+        <img src="assets/images/hero-image.png" alt="Kids learning illustration" />
+      </div>
+
+      <!-- SETUP FORM -->
+      <div class="hero-content">
+        <h2 class="hero-heading">Let’s get to know your little learner 🌱</h2>
+
+        <form class="setup-form" id="setupForm">
+
+          <!-- Child name -->
+          <label>
+            Child’s Name
+            <input type="text" id="childName" required />
+          </label>
+
+          <!-- Gender -->
+          <label>
+            Gender
+            <select id="childGender" required>
+              <option value="">Select</option>
+              <option value="boy">Boy</option>
+              <option value="girl">Girl</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+
+          <!-- Profile Image (optional) -->
+          <label>
+            Profile Image (optional)
+            <input type="file" id="childImage" accept="image/*" />
+          </label>
+
+          
+            <button type="submit" class="proceed-btn">
+                Continue ✨
+            </button>
+          
+          
+
+        </form>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- JS -->
+  <script src="js/setup.js">
+  </script>
+
+</body>
+</html>
