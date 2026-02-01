@@ -1,25 +1,34 @@
-const form = document.getElementById("setupForm");
-    const imageInput = document.getElementById("childImage");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("setupForm");
+  const imageInput = document.getElementById("childImage");
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+  if (!form) return; // safety check
 
-      const name = document.getElementById("childName").value;
-      const gender = document.getElementById("childGender").value;
-      const imageFile = imageInput.files[0];
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-      localStorage.setItem("childName", name);
-      localStorage.setItem("childGender", gender);
+    const name = document.getElementById("childName").value.trim();
+    const gender = document.getElementById("childGender").value;
+    const imageFile = imageInput.files[0];
 
-      if (imageFile) {
-        const reader = new FileReader();
-        reader.onload = function () {
-          localStorage.setItem("childImage", reader.result);
-          window.location.href = "home.html";
-        };
-        reader.readAsDataURL(imageFile);
-      } else {
-        localStorage.removeItem("childImage");
+    // save basic info
+    localStorage.setItem("childName", name);
+    localStorage.setItem("childGender", gender);
+
+    // if image exists, read & save it
+    if (imageFile) {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        localStorage.setItem("childImage", reader.result);
         window.location.href = "home.html";
-      }
-    });
+      };
+
+      reader.readAsDataURL(imageFile);
+    } else {
+      // no image uploaded
+      localStorage.removeItem("childImage");
+      window.location.href = "home.html";
+    }
+  });
+});
