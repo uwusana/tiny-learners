@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    alert("FORM SUBMITTED");
+
     const name = document.getElementById("childName").value.trim();
     const gender = document.getElementById("childGender").value;
     const imageFile = imageInput.files[0];
@@ -28,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       // no image uploaded
       localStorage.removeItem("childImage");
-      window.location.href = "home.html";
+      window.location.href = "./home.html";
     }
   });
 });
