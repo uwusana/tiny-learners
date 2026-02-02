@@ -1,0 +1,121 @@
+body {
+    min-height: 100vh;
+    background: #fff4d3;
+    font-family: "Gamja Flower", cursive;
+}
+/*------ welcome message and streak counter ------*/
+.top-section {
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.greeting h4{
+    font-size: 24px;
+    color: #8F004F;
+    margin-bottom: 5px;
+}
+/*------ logo and profile picture ------*/
+.logo-bar{
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    margin-bottom: 10px;
+}
+
+.logo img{
+    height: 100px;  
+}
+.profile-image {
+    margin-bottom: 10px;
+}
+.profile-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+/*------ categories section ------*/
+
+.categories-container {
+    max-width: 1300px;
+    margin: 0 auto 40px;
+    padding: 40px;
+    background: #FAE4E4;
+    border-radius: 45px;
+    color: #8F004F;
+}
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+.category-card {
+    background: #fff4d3;
+    border-radius: 30px;
+    border: 2px solid #FFB6C1;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+.category-card img {
+    width: 100px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+/*------- streak section ----------*/
+.streak {
+    width:auto;
+    height: auto;
+    position: relative;
+    background: #FAE4E4;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+}
+.streak img {
+    width: 20px;
+    height: 20px;
+    animation: pulse 2s infinite ease-in-out;
+}
+.streak span {
+    font-size: 18px;
+    color: #8F004F;
+    margin-left: 10px;
+    font-weight: bold;
+}
+/*----- streak icon animation ----- */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.streak img.bump {
+  animation: bump 0.5s ease;
+}
+
+@keyframes bump {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.4) rotate(-5deg); }
+  70% { transform: scale(0.9) rotate(3deg); }
+  100% { transform: scale(1); }
+}
+
+

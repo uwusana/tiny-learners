@@ -81,6 +81,12 @@
 
   <!-- JS -->
   <script src="javascript/setup.js" defer></script>
+  <script>
+    // if setup already done, redirect to home
+    if (localStorage.getItem("setupComplete") === "true") {
+      window.location.href = "home.html";
+    }
+  </script> 
 
 </body>
 </html>

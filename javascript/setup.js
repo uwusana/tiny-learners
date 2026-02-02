@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("setupForm");
   const imageInput = document.getElementById("childImage");
 
-  if (!form) return; // safety check
+  if (!form) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -13,11 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const gender = document.getElementById("childGender").value;
     const imageFile = imageInput.files[0];
 
-    // save basic info
     localStorage.setItem("childName", name);
     localStorage.setItem("childGender", gender);
+    localStorage.setItem("setupComplete", "true"); // ✅ ALWAYS set
 
-    // if image exists, read & save it
     if (imageFile) {
       const reader = new FileReader();
 
@@ -28,9 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       reader.readAsDataURL(imageFile);
     } else {
-      // no image uploaded
       localStorage.removeItem("childImage");
-      window.location.href = "./home.html";
+      window.location.href = "home.html";
     }
   });
 });

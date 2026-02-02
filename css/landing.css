@@ -9,6 +9,7 @@ body {
   min-height: 100vh;
   background: #FAE4E4;
   font-family: sans-serif;
+  overflow-x: hidden;
 }
 /* ---------- Bg Blob ---------- */
 .bg-blob{
@@ -68,6 +69,7 @@ body {
 /* ---------- Hero Content ---------- */
 .hero-content {
   max-width: 500px;
+  align-self: center;
 }
 
 .hero-heading {
@@ -84,7 +86,9 @@ body {
 }
 
 /* ---------- Button ---------- */
-.proceed-btn {
+.cta-link {
+  display: inline-block;
+  text-decoration: none;
   padding: 12px 32px;
   font-size: 20px;
   border-radius: 28px;
@@ -93,9 +97,11 @@ body {
   color: #8F004F;
   cursor: pointer;
   box-shadow: 0px 4px 4.3px rgba(87, 19, 19, 0.31);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-.proceed-btn:hover {
+
+.cta-link:hover {
     transform: scale(1.05);
     background: #8F004F;
     color: white;

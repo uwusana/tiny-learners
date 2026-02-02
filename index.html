@@ -39,9 +39,10 @@
                         learn through play—at their own pace.
                     </p>
 
-                    <a href="setup.html" class="cta-link">
-                        <button class="proceed-btn">Get started</button>
+                    <a href="#" class="cta-link" id="getStartedBtn">
+                        Get Started
                     </a>
+
                 </div>
 
             </section>
@@ -50,6 +51,18 @@
         
 
     </div>
+
+    <script>
+    document.getElementById("getStartedBtn").addEventListener("click", () => {
+        const isSetupDone = localStorage.getItem("setupComplete");
+
+        if (isSetupDone === "true") {
+        window.location.href = "home.html";
+        } else {
+        window.location.href = "setup.html";
+        }
+    });
+    </script>
 
 </body>
 </html>
