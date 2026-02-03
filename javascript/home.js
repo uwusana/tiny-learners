@@ -141,5 +141,65 @@ if (streak > previousStreak) {
 
 localStorage.setItem("previousStreak", streak);
 
+/* ------------------------------
+   PROGRESS SYSTEM (HTML-driven)
+--------------------------------*/
+
+// Get all categories from HTML
+function getAllCategories() {
+  return Array.from(
+    document.querySelectorAll(".progress-bar-fill")
+  ).map(bar => bar.dataset.category);
+}
+
+function getProgressData() {
+  const stored = JSON.parse(localStorage.getItem("progressData")) || {};
+  const categories = getAllCategories();
+
+  // Ensure every category exists
+  categories.forEach(cat => {
+    if (stored[cat] === undefined) {
+      stored[cat] = 0;
+    }
+  });
+
+  return stored;
+}
+
+function saveProgressData(data) {
+  localStorage.setItem("progressData", JSON.stringify(data));
+}
+
+function updateProgress(category, amount = 10) {
+  const progress = getProgressData();
+
+  progress[category] = Math.min(100, progress[category] + amount);
+
+  saveProgressData(progress);
+  applyProgressToUI();
+}
+
+function applyProgressToUI() {
+  const progress = getProgressData();
+
+  document.querySelectorAll(".progress-bar-fill").forEach(bar => {
+    const category = bar.dataset.category;
+    const value = progress[category] || 0;
+
+    bar.style.width = value + "%";
+    bar.textContent = value + "%";
+  });
+}
+
+// Click → progress increase
+document.querySelectorAll(".category-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const category = card.dataset.category;
+    updateProgress(category, 10);
+  });
+});
+
+// Run once on page load
+applyProgressToUI();
 
 });

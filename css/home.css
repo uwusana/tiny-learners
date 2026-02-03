@@ -74,6 +74,10 @@ body {
     height: 80px;
     margin-bottom: 15px;
 }
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
 /*------- streak section ----------*/
 .streak {
     width:auto;
@@ -117,5 +121,82 @@ body {
   70% { transform: scale(0.9) rotate(3deg); }
   100% { transform: scale(1); }
 }
+/* ----------progress bar styles ----------*/
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: #FFD6E0;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF69B4, #FFB6C1);
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+.category-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
 
+@media (max-width: 1024px) {
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .categories-container {
+    padding: 30px;
+    border-radius: 35px;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+  .profile-image img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .top-section,
+  .logo-bar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .greeting h4 {
+    font-size: 20px;
+  }
+
+  .categories {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .category-card {
+    padding: 25px;
+    border-radius: 25px;
+  }
+
+  .categories-container {
+    padding: 20px;
+    border-radius: 25px;
+  }
+
+  .streak {
+    padding: 15px;
+  }
+
+  .streak span {
+    font-size: 16px;
+  }
+}
