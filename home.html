@@ -20,123 +20,50 @@
             </div>
         </div>
     </header>
-    <main >
+        <main>
         <div class="top-section">
             <div class="greeting">
                 <h4 id="child-name">Ready to learn today?</h4>
             </div>
+
             <div class="streak">
                 <img id="streak-icon" src="assets/images/streak.png" alt="Streak Icon">
-                <span id="streak-count">5</span>
+                <span id="streak-count">0</span>
             </div>
         </div>
 
-        <div class="categories-container">
-            <div class="categories">
-                <div class="category-card" data-category="alphabets" id="alphabets-card">
-                    <img src="assets/images/card-icons/alphabets.png" alt="Alphabet Icon">
-                    <h3>Alphabets</h3>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" data-category="alphabets"></div>
-                    </div>
-                    
-                </div>
+    <!-- Categories section -->
+    <div class="categories-container">
+        <div class="categories" id="categories-container"></div>
+    </div>
 
-                <div class="category-card" data-category="numbers" id="numbers-card">
-                    <img src="assets/images/card-icons/numbers.png" alt="Number Icon">
-                    <h3>Numbers</h3>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" data-category="numbers"></div>
-                    </div>
-                    
-                </div>
+    <!-- Modal (REQUIRED) -->
+    <div class="card-modal hidden" id="card-modal">
+        <div class="card-modal-content">
+        <button class="close-modal" id="close-modal">✕</button>
 
-                <div class="category-card" data-category="fruits" id="fruits-card">
-                    <img src="assets/images/card-icons/fruits.png" alt="Fruits Icon">
-                    <h3>Fruits</h3>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" data-category="fruits"></div>
-                    </div>
-                    
-                </div> 
+        <h2 id="modal-title">Category</h2>
 
-                <div class="category-card" data-category="colors" id="colors-card">
-                    <img src="assets/images/card-icons/colors.png" alt="Colors Icon">
-                    <h3>Colors</h3>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" data-category="colors"></div>
-                    </div>
-                    
-                </div>
+        <div class="flashcard-container">
+            <button class="nav-btn" id="prev-card">‹</button>
 
-                <div class="category-card" data-category="shapes" id="shapes-card">
-                    <img src="assets/images/card-icons/shapes.png" alt="Shapes Icon">
-                    <h3>Shapes</h3>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" data-category="shapes"></div>
-                    </div>
-                    
-                </div>
-
-                <div class="category-card" data-category="animals" id="animals-card">
-                    <img src="assets/images/card-icons/animals.png" alt="Animals Icon">
-                    <h3>Animals</h3>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" data-category="animals"></div>
-                    </div>
-                    
-                </div>
-
-                <div class="category-card" data-category="emotions" id="emotions-card">
-                    <img src="assets/images/card-icons/emotions.png" alt="Emotions Icon">
-                    <h3>Emotions</h3>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" data-category="emotions"></div>
-                    </div>
-
-                </div>
-
-                <div class="category-card" data-category="weather" id="weather-card">
-                    <img src="assets/images/card-icons/weather.png" alt="Weather Icon">
-                    <h3>Weather</h3>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" data-category="weather"></div>
-                    </div>
-                    
-                </div>
-
-                <div class="category-card" data-category="family" id="family-card">
-                    <img src="assets/images/card-icons/family.png" alt="Family Icon">
-                    <h3>Family</h3>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" data-category="family"></div>
-                    </div>
-                    
-                </div>
+            <div class="flashcard">
+            <img id="card-image" src="" alt="card image" />
+            <p id="card-title"></p>
             </div>
+
+            <button class="nav-btn" id="next-card">›</button>
         </div>
-        <div class="card-modal hidden" id="card-modal">
-            <div class="card-modal-content">
-                <button class="close-modal" id="close-modal">✕</button>
-
-                <h2 id="modal-title">Category</h2>
-
-                <div class="flashcard-container">
-                    <button class="nav-btn" id="prev-card">‹</button>
-
-                    <div class="flashcard">
-                        <img id="card-image" src="" alt="card image" />
-                        <p id="card-title"></p>
-                    </div>
-
-                    <button class="nav-btn" id="next-card">›</button>
-                </div>
-            </div>
         </div>
-
+    </div>
     </main>
-    <script src="javascript/data/cardsData.js"></script>
-    <script src="javascript/home.js" defer></script>
+
+<script src="javascript/data/cardsData.js"></script>
+<script src="javascript/components/categoryCard.js"></script>
+<script type="module" src="javascript/home.js"></script>
+
+
+
 
 
 </body>
