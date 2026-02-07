@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const categoriesContainer = document.getElementById("categories-container");
+
+  if (categoriesContainer) {
+    const categories = Object.keys(cardsData);
+
+    categories.forEach(category => {
+      const iconPath = `assets/images/card-icons/${category}.png`;
+      categoriesContainer.innerHTML += createCategoryCard(category, iconPath);
+    });
+  }
+
   const childName = localStorage.getItem("childName");
   const childGender = localStorage.getItem("childGender");
   const childImage = localStorage.getItem("childImage");
@@ -52,6 +63,29 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "assets/images/girl-pfp.png"
         : "assets/images/boy-pfp.png";
   }
+  /*-----------------------------
+      EDIT PROFILE IMAGE
+  -------------------------------*/
+  const uploadInput = document.getElementById("image-upload");
+  const profileContainer = document.querySelector(".profile-image");
+
+ profileContainer.addEventListener("click", () => {
+  uploadInput.click();
+});
+
+
+  uploadInput.addEventListener("change", () => {
+    const file = uploadInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      profileImg.src = e.target.result;
+      localStorage.setItem("childImage", e.target.result);
+    };
+
+    reader.readAsDataURL(file);
+  });
 
   /* ------------------------------
       STREAK HELPERS
@@ -192,12 +226,12 @@ function applyProgressToUI() {
 }
 
 // Click → progress increase
-document.querySelectorAll(".category-card").forEach(card => {
-  card.addEventListener("click", () => {
-    const category = card.dataset.category;
-    updateProgress(category, 10);
-  });
-});
+// document.querySelectorAll(".category-card").forEach(card => {
+//   card.addEventListener("click", () => {
+//     const category = card.dataset.category;
+//     updateProgress(category, 10);
+//   });
+// });
 
 // Run once on page load
 applyProgressToUI();
@@ -215,7 +249,10 @@ const cardTitle = document.getElementById("card-title");
 
 function openCategory(category) {
   currentCategory = category;
-  currentIndex = 0;
+  //saves the last visited card
+  const savedIndex = localStorage.getItem("lastCard_" + category);
+  currentIndex = savedIndex ? parseInt(savedIndex) : 0;
+
 
   modalTitle.textContent =
     category.charAt(0).toUpperCase() + category.slice(1);
@@ -235,6 +272,11 @@ function renderCard() {
   const card = cards[currentIndex];
   cardImage.src = card.image;
   cardTitle.textContent = card.title;
+
+  localStorage.setItem(
+  "lastCard_" + currentCategory,
+  currentIndex
+  );
 }
 
 document.querySelectorAll(".category-card").forEach(card => {
@@ -250,6 +292,7 @@ document.getElementById("close-modal").addEventListener("click", closeModal);
 document.getElementById("next-card").addEventListener("click", () => {
   const cards = cardsData[currentCategory];
   currentIndex = (currentIndex + 1) % cards.length;
+  updateProgress(currentCategory, 5);
   renderCard();
 });
 
